@@ -1,0 +1,10 @@
+controllers:
+    resource: '../src/Controller/'
+    type: attribute
+app_logout:
+    path: /logout
+    methods: [GET]
+app_user_management_new:
+    path: /user/management/new
+    controller: 'App\Controller\UserManagementController::new'
+    methods: [GET, POST]

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CrazyQuizz{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% block nav %}
+<div class="nav">
+	<a href="historique">Historique</a><br>
+	<h1>
+		<strong>CrazyQuizz</strong>
+	</h1>
+	{% if app.user %}
+	<div class="mb-3">
+		<ul>
+			<li>
+				<a class="nav-link">Mon compte</a>
+			</li>
+			<li>
+				{{ app.user.userIdentifier }},
+
+			</li>
+			<li>
+				<a class="nav-link" href="{{ path('app_logout') }}">Me deconnecter</a>
+			</li>
+		</ul>
+	</div>
+	{% endif %}
+
+	<a href="register">Inscription</a><br>
+	<a href="login">Connecter</a><br>
+</div>
+{% endblock %}
+<h3>CrazyQuizz des questions fous pour un max de plaisir</h3>
+
+{% block footer %}
+<p>BY Benjamin Idriss Alexandre</p>
+{% endblock %}
+
+{% endblock %}

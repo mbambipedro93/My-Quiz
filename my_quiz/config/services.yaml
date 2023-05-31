@@ -1,0 +1,27 @@
+# Ce fichier est le point d'entrée pour configurer vos propres services.
+# Les fichiers du répertoire packages/ configurant vos dépendances.
+
+# Placez ici les paramètres qui ne doivent pas changer sur chaque machine où l'application est déployée
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # Configuration par défaut pour les services de ce fichier
+    _defaults:
+        autowire: true      # Injection automatique des dépendances dans vos services.
+        autoconfigure: true # Enregistrement automatique de vos services en tant que commandes, abonnés d'événements, etc.
+
+    # Rend les classes de src/ disponibles en tant que services
+    # Cela crée un service par classe dont l'ID est le nom de classe entièrement qualifié
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # Ajoutez davantage de définitions de services lorsque une configuration explicite est nécessaire
+    # Veuillez noter que les dernières définitions remplacent toujours les précédentes
+    
+    App\Form\User2Type:
+        tags: ['form.type']   

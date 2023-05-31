@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CrazyQuizz Login
+{% endblock %}
+
+{% block body %}
+	{% if app.user %}
+		<div class="mb-3">
+		<ul>
+			<li>
+				<a class="nav-link">Mon compte</a>
+			</li>
+			<li>
+				{{ app.user.userIdentifier }},
+				
+			</li>
+			<li>
+				<a class="nav-link" href="{{ path('app_logout') }}">Me deconnecter</a>
+			</li>
+		</ul>
+	</div>
+	{% endif %}
+    <a href="{{('/') }}">back</a>
+
+	<h1>Register</h1>
+
+	{{ form_start(registrationForm) }}
+	{{ form_row(registrationForm.email) }}
+	{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+	{{ form_row(registrationForm.agreeTerms) }}
+
+	<button type="submit" class="btn">Register</button>
+	{{ form_end(registrationForm) }}
+{% endblock %}
